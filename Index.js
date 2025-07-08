@@ -2,7 +2,7 @@ const http = require('http');  // Import Node.js http module
 const fs = require('fs');      // Import Node.js file system module
 
 const server = http.createServer((req, res) => {
-    if (req.url === '/') {
+    if (req.url === '/') {  //req.url always begins with /.
         res.write("This is the Home page");
         res.end();
     } else if (req.url === '/login' && req.method === 'GET') {
