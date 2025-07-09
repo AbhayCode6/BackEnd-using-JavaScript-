@@ -12,7 +12,16 @@ const server = http.createServer((req, res) => {
                 res.end();
             }
         });
-    } else {
+    }else if(req.url=='/login' && req.method==='POST'){
+        let body=''
+        req.on('data',(chunk)=>{
+            body+=chunk.toString()
+        })
+        req.on('end',()=>{
+            console.log(body)
+        })
+    } 
+    else {
         res.write("404 Not Found..")
         res.end();
     }
